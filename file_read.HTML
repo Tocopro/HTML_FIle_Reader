@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="form_netflix">
+    <input type="file" id="doc_picker" accept=".txt" required/>
+    <input type="submit">
+</form>
+<div id="output"></div>
+
+<script>
+    document.getElementById('doc_picker').addEventListener('change', function (event)
+    {
+        event.preventDefault();
+        const fr = new FileReader();
+        fr.onload = function ()
+        {
+            document.getElementById("output").innerHTML = fr.result;
+        }
+        fr.readAsText(this.files[0]);
+    })
+
+</script>
+</body>
+</html>
